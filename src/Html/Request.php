@@ -51,7 +51,14 @@ class Request
 
     private static function postRequest()
     {
-        //TODO: implement xdd
+        $request = $_REQUEST;
+        switch ($request) {
+            case isset($request['btn-home']):
+                break;
+            case isset($request['btn-counties']):
+                PageCounties::table(self::getCounties());
+                break;
+        }
     }
 
     private static function getCounties()

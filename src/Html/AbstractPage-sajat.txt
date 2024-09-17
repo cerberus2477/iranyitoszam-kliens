@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Html;
+
+use App\Interfaces\PageInterface;
+
+//azért abstract mert nem implementálunk mindent
+abstract class AbstractPage implements PageInterface
+{
+
+    static function head()
+    {
+        require __DIR__ . "/PageElements/header.html";
+    }
+
+    static function nav()
+    {
+        require __DIR__ . "/PageElements/nav.html";
+    }
+
+    static function footer()
+    {
+        require __DIR__ . "/PageElements/footer.html";
+    }
+}
+
