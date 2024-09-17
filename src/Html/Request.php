@@ -2,19 +2,67 @@
 
 namespace App\Html;
 
-class PageCounties implements AbstractPage{
+// use App\Pdf\Pdf;
+use App\Html\PageCounties;
+use App\RestApiClient\Client;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+
+class Request
+{
 
 
+    static function handle()
+    {
+        switch ($_SERVER["REQUEST_METHOD"]) {
+            case "POST":
+                self::postRequest();
+                break;
+            // case "PUT":
+            //     self::putRequest();
+            //     break;
+            // case "HEAD":
+            //     self::headRequest();
 
-public function getRequest(){
-    pagecounties::table(self::getCounties());
-}
+            //így getre és maradékra is get lesz
+            case "GET":
+            default:
+                self::getRequest();
+                break;
+        }
+    }
 
-public function getCounties();
+    private static function getRequest()
+    {
+        // $request = $_REQUEST; //mindkettő, put is és get is
+        // if (isset($request['page'])) {
+        //     $page = $request['page'];
+        //     switch ($page) {
+        //         case 'counties':
+        PageCounties::table(self::getCounties());
+        //             break;
+        //         case 'cities':
+        //             echo 'Cities';
+        //             break;
+        //     }
+        // }
+        //header("Refresg:0);
+    }
 
-client = new Client()
-$response = $client->get('counties';
+    private static function postRequest()
+    {
+        //TODO: implement xdd
+    }
 
-return $response(data))
+    private static function getCounties()
+    {
+
+        $client = new Client();
+        $response = $client->get('counties');
+
+        return $response['data'];
+    }
+
+    // private static function makeCountiesPdf($)
 
 }
