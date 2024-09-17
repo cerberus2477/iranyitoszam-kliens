@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Html;
+
+use App\Html\AbstractPage;
 class PageCounties implements AbstractPage
 {
 
