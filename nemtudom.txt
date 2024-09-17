@@ -23,4 +23,3 @@ abstract class AbstractPage implements PageInterface
         require __DIR__ . "/PageElements/footer.html";
     }
 }
-

@@ -1,5 +1,5 @@
 <?php
-namespace API\HTML;
+namespace App\HTML;
 
 use App\Interfaces\PageInterface;
 
@@ -34,5 +34,5 @@ abstract class AbstractPage implements PageInterface
     abstract static function tableHead();
     abstract static function tableBody(array $entyties);
     abstract static function table(array $entyties);
-    abstract static function editor();
+    // abstract static function editor();
 }
