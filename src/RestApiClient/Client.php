@@ -41,7 +41,7 @@ class Client implements ClientInterface
 
     }
 
-    function put($url, array $data = [])
+    function post($url, array $data = [])
     {
         $json = json_encode($data);
         $curl = curl_init();
@@ -61,13 +61,17 @@ class Client implements ClientInterface
     }
 
 
+
+
+
+
     //TODO: implement xd
     function delete($url, $id)
     {
 
     }
 
-    function post($url, array $data = [])
+    function put($url, array $data = [])
     {
 
     }

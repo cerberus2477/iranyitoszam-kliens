@@ -71,4 +71,20 @@ class PageCounties extends AbstractPage
     {
         echo 'serach serach search';
     }
+
+    static function editor()
+    {
+        echo '
+        <th>&nbsp;</th>
+<th>
+    <form name="county-editor" method="post" action="">
+        <input type="hidden" id="id" name="id">
+        <input type="search" id="name" name="name" placeholder="Megye" required>
+        <button type="submit" id="btn-save-county" name="btn-save-county" title="Ment"></button>
+        <!-- <button>cancel</button> -->
+    </form>
+</th>
+        '
+        ;
+    }
 }
