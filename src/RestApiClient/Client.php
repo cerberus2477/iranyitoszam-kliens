@@ -7,7 +7,7 @@ use App\Interfaces\ClientInterface;
 
 class Client implements ClientInterface
 {
-    const API_URL = 'https://localhost:8000';
+    const API_URL = 'https://localhost:8000/';
 
     protected $url;
 
@@ -39,6 +39,25 @@ class Client implements ClientInterface
 
         return json_decode($response, true);
 
+    }
+
+    function put($url, array $data = [])
+    {
+        $json = json_encode($data);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($curl, CURLOPT_URL, $this->url . $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'Contet-Length: ' . strlen($json)]);
+        curl_setopt($curl, CURLOPT_POST, TRUE);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
+        $response = curl_exec($curl); //ezzel hívjuk meg a rest-api végpontját
+
+        if (!$response) {
+            trigger_error(curl_error($curl));
+        }
+        curl_close($curl);
+
+        return json_decode($response, true);
     }
 
 

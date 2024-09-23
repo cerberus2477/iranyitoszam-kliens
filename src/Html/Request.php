@@ -58,6 +58,12 @@ class Request
             case isset($request['btn-counties']):
                 PageCounties::table(self::getCounties());
                 break;
+            case isset($request['btn-counties']):
+                PageCounties::table(self::getCounties());
+                break;
+            case isset($request['btn-counties']):
+                PageCounties::table(self::getCounties());
+                break;
         }
     }
 
